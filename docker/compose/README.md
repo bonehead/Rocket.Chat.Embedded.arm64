@@ -11,7 +11,7 @@ See the `README.md` in  the `rocketchat`` directory on how to build the image.
 Once you have the images built, make sure you have a `data` directory - then you can startup the mongo server:
 
 ```
-docker.compose up -d mongo
+docker-compose up -d mongo
 ```
 
 The mongo server will use the `data` directory to store the rocketchat data.   You can take a look in the directory to see that it is populated.
@@ -27,7 +27,7 @@ docker logs compose_mongo_1
 Next, you need to do this ONE TIME ONLY - to initialize the replicaset in mongo.  This turns the mongo server into a single primary  replicaset node.
 
 ```
-docker.compose run --rm  mongo-init-replica
+docker-compose run --rm  mongo-init-replica
 ```
 
 You should see output similar to:
@@ -70,7 +70,7 @@ Note that mongo node is now a PRIMARY node. Your mongo server is now up and runn
 With the mongo server up and running, you can now start the rocketchat server.  Use the command:
 
 ```
-docker.compose up -d rocketchat
+docker-compose up -d rocketchat
 ```
 
 Starting the rocketchat server on a Raspberry Pi or 32 bit ARM SoC board will probably take a minute or two, so please be patient.
